@@ -1,0 +1,526 @@
+{
+  "minMuleVersion": "3.5.0",
+  "requiresEntitlement": false,
+  "requiresEnterpriseLicense": false,
+  "configs": [
+    {
+      "configElementName": "config",
+      "attributes": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "apiUrl",
+          "description": "API URL"
+        },
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "token",
+          "description": "Token"
+        }
+      ],
+      "javaName": "ConnectorConfig",
+      "friendlyName": "Configuration",
+      "type": "ConfigurationConfig"
+    }
+  ],
+  "attributes": [],
+  "processors": [
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:send-message config-ref\u003d\"Whatsapp__Configuration\" doc:name\u003d\"Whatsapp\" message\u003d\"Test message from Mule\" number\u003d\"919612346797\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "Json String returned by Server"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "number",
+          "description": "A phone number starting with the country code. You do not need to add your number. USA example: 17472822486."
+        },
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "message",
+          "description": "Message text, UTF-8 or UTF-16 string with emoji 🍏"
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "sendMessage",
+      "friendlyName": "Send message",
+      "description": "Send a message to a new or existing chat.",
+      "xsdName": "send-message"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:read-message config-ref\u003d\"Whatsapp__Configuration\" lastMessageNumber\u003d\"101\" doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON String of response received from Server."
+      },
+      "parameters": [
+        {
+          "javaTypeName": "Integer",
+          "fullQualifiedJavaTypeName": "java.lang.Integer",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "java.lang.Integer",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "lastMessageNumber",
+          "description": "The lastMessageNumber parameter from the last response"
+        },
+        {
+          "javaTypeName": "boolean",
+          "fullQualifiedJavaTypeName": "boolean",
+          "defaultValue": "#[false]",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "boolean",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "last",
+          "description": "Displays the last 100 messages. If this parameter is passed, then lastMessageNumber is ignored."
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "readMessage",
+      "friendlyName": "Read message",
+      "description": "Get a list of messages. To receive only new messages, pass the lastMessageNumber parameter from the last query.",
+      "xsdName": "read-message"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:set-webhook-url config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\" webhookUrl\u003d\"http://google.com\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON String returned by Server"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "webhookUrl",
+          "description": "Http or https URL for receiving notifications."
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "setWebhookUrl",
+      "friendlyName": "Set webhook url",
+      "description": "Sets the URL for receiving webhook notifications of new messages and message delivery events (ack).",
+      "xsdName": "set-webhook-url"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:get-webhook-url config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON String returned by Server."
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "getWebhookUrl",
+      "friendlyName": "Get webhook url",
+      "description": "Returns current webhook url.",
+      "xsdName": "get-webhook-url"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:logout config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": ""
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "logout",
+      "friendlyName": "Logout",
+      "description": "Logout from WhatsApp Web to get new QR code.",
+      "xsdName": "logout"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:reboot config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": ""
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "reboot",
+      "friendlyName": "Reboot",
+      "description": "Reboot your WhatsApp instance.",
+      "xsdName": "reboot"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:show-messages-queue config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON String returned from server."
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "showMessagesQueue",
+      "friendlyName": "Show messages queue",
+      "description": "Get outbound messages queue.",
+      "xsdName": "show-messages-queue"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:clear-messages-queue config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON string returned from server."
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "clearMessagesQueue",
+      "friendlyName": "Clear messages queue",
+      "description": "Clear outbound messages queue. This method is needed when you accidentally sent thousands of messages in a row.",
+      "xsdName": "clear-messages-queue"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:status config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "String",
+        "fullQualifiedJavaTypeName": "java.lang.String",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON string returned by server."
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "status",
+      "friendlyName": "Status",
+      "description": "Get the account status and QR code for authorization.",
+      "xsdName": "status"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:get-q-r-code config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "Object",
+        "fullQualifiedJavaTypeName": "java.lang.Object",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "Byte Array object returned by server."
+      },
+      "parameters": [],
+      "apiDocUrl": "",
+      "javaName": "getQRCode",
+      "friendlyName": "Get q r code",
+      "description": "Direct link to QR-code in the form of an image, not base64.",
+      "xsdName": "get-q-r-code"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:create-group config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\" groupName\u003d\"MuleTestGroup\" message\u003d\"This is first test group\"\u003e\n            \u003cwhatsapp:phones\u003e\n                \u003cwhatsapp:phone\u003e911234749815\u003c/whatsapp:phone\u003e\n                \u003cwhatsapp:phone\u003e911234526227\u003c/whatsapp:phone\u003e\n            \u003c/whatsapp:phones\u003e\n        \u003c/whatsapp:create-group\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "Object",
+        "fullQualifiedJavaTypeName": "java.lang.Object",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON string returned by Server"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "groupName",
+          "description": "Group name, string, mandatory."
+        },
+        {
+          "javaTypeName": "List\u003cString\u003e",
+          "fullQualifiedJavaTypeName": "java.util.List\u003cjava.lang.String\u003e",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "java.util.List\u003cjava.lang.String\u003e",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": true,
+          "javaName": "phones",
+          "description": "An array of phones starting with the country code. You do not need to add your number. USA example: [\u002717472822486\u0027]."
+        },
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "message",
+          "description": "Message text, string"
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "createGroup",
+      "friendlyName": "Create group",
+      "description": "Creates a group and sends the message to the created group.",
+      "xsdName": "create-group"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cwhatsapp:send-file config-ref\u003d\"Whatsapp__Configuration\"  doc:name\u003d\"Whatsapp\" body\u003d\"http://google.com/image\" fileName\u003d\"testFile.png\" phone\u003d\"917021234815\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "Object",
+        "fullQualifiedJavaTypeName": "java.lang.Object",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "JSON string returned by Server"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "phone",
+          "description": "A phone number starting with the country code. You do not need to add your number. USA example: 17472822486."
+        },
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "body",
+          "description": "HTTP link https://upload.wikimedia.org/wikipedia/ru/3/33/NatureCover2001.jpg Or base64-encoded file with mime data, for example data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ... File in form-data input field"
+        },
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "fileName",
+          "description": "File name, for example 1.jpg or hello.xlsx"
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "sendFile",
+      "friendlyName": "Send file",
+      "description": "Send a file to a new or existing chat.",
+      "xsdName": "send-file"
+    }
+  ],
+  "filters": [],
+  "transformers": [],
+  "sources": [],
+  "javaName": "WhatsappConnector",
+  "friendlyName": "Whatsapp",
+  "description": "his conenctor provides implementation of Whatsapp APIs.",
+  "xsdName": "whatsapp"
+}

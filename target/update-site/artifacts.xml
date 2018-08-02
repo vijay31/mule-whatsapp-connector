@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='file:/Users/vijaybharwani/AnypointStudio/routing-engine-wk/whatsapp-connector/target/update-site/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1533208336567'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='2'>
+    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.whatsapp.3.5.0' version='1.0.0.201808021642'>
+      <properties size='3'>
+        <property name='artifact.size' value='773628'/>
+        <property name='download.size' value='773628'/>
+        <property name='download.md5' value='a3631fa0a34251065a83e171617feb33'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.whatsapp-connector.3.5.0' version='1.0.0.201808021642'>
+      <properties size='4'>
+        <property name='artifact.size' value='677'/>
+        <property name='download.size' value='677'/>
+        <property name='download.md5' value='79c94abe5781dc2eb9b42820ec0f421e'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

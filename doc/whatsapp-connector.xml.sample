@@ -1,0 +1,66 @@
+<!-- BEGIN_INCLUDE(whatsapp:send-message) -->
+    <whatsapp:send-message config-ref="Whatsapp__Configuration" doc:name="Whatsapp" message="Test message from Mule" number="919612346797"/>
+<!-- END_INCLUDE(whatsapp:send-message) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:read-message) -->
+    <whatsapp:read-message config-ref="Whatsapp__Configuration" lastMessageNumber="101" doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:read-message) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:status) -->
+    <whatsapp:status config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:status) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:get-q-r-code) -->
+	<whatsapp:get-q-r-code config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:get-q-r-code) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:set-webhook-url) -->
+<whatsapp:set-webhook-url config-ref="Whatsapp__Configuration"  doc:name="Whatsapp" webhookUrl="http://google.com"/>
+<!-- END_INCLUDE(whatsapp:set-webhook-url) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:get-webhook-url) -->
+	<whatsapp:get-webhook-url config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:get-webhook-url) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:logout) -->
+	<whatsapp:logout config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:logout) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:reboot) -->
+	<whatsapp:reboot config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:reboot) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:show-messages-queue) -->
+	<whatsapp:show-messages-queue config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:show-messages-queue) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:clear-messages-queue) -->
+	<whatsapp:clear-messages-queue config-ref="Whatsapp__Configuration"  doc:name="Whatsapp"/>
+<!-- END_INCLUDE(whatsapp:clear-messages-queue) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:send-file) -->
+	<whatsapp:send-file config-ref="Whatsapp__Configuration"  doc:name="Whatsapp" body="http://google.com/image" fileName="testFile.png" phone="917021234815"/>
+<!-- END_INCLUDE(whatsapp:send-file) -->
+
+<!-- BEGIN_INCLUDE(whatsapp:create-group) -->
+	<whatsapp:create-group config-ref="Whatsapp__Configuration"  doc:name="Whatsapp" groupName="MuleTestGroup" message="This is first test group">
+            <whatsapp:phones>
+                <whatsapp:phone>911234749815</whatsapp:phone>
+                <whatsapp:phone>911234526227</whatsapp:phone>
+            </whatsapp:phones>
+        </whatsapp:create-group>
+<!-- END_INCLUDE(whatsapp:create-group) -->
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+

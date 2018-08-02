@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/whatsapp" prefix="whatsapp">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Whatsapp" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Whatsapp: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/whatsapp-connector-small.png" localId="config" image="icons/theme.classic/whatsapp-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/whatsapp/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Whatsapp configuration properties.">
+      <group id="whatsappGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string name="apiUrl" caption="Api Url" description="API URL." supportsExpressions="false" required="true" javaType="java.lang.String"></string>
+        <string name="token" caption="Token" description="Token." supportsExpressions="false" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractwhatsappconnectorgeneric" description="Interact with Whatsapp." icon="icons/theme.classic/whatsapp-connector-small.png" localId="abstractWhatsappConnectorGeneric" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractWhatsappConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/whatsapp/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.whatsapp" caption="Whatsapp" description="His conenctor provides implementation of Whatsapp APIs." icon="icons/theme.classic/whatsapp-connector-small.png" localId="whatsapp-connector" image="icons/theme.classic/whatsapp-connector-large.png" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="whatsappConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Whatsapp operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/clear-messages-queue" modeLabel="Clear messages queue"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/create-group" modeLabel="Create group"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/get-q-r-code" modeLabel="Get q r code"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/get-webhook-url" modeLabel="Get webhook url"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/logout" modeLabel="Logout"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/read-message" modeLabel="Read message"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/reboot" modeLabel="Reboot"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/send-file" modeLabel="Send file"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/send-message" modeLabel="Send message"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/set-webhook-url" modeLabel="Set webhook url"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/show-messages-queue" modeLabel="Show messages queue"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/whatsapp/status" modeLabel="Status"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Clear Messages Queue" icon="icons/theme.classic/whatsapp-connector-small.png" localId="clear-messages-queue" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Object" caption="Create Group" icon="icons/theme.classic/whatsapp-connector-small.png" localId="create-group" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="groupName" caption="Group Name" description="Group name, string, mandatory." required="true" javaType="java.lang.String"></string>
+        <string name="message" caption="Message" description="Message text, string." required="true" javaType="java.lang.String"></string>
+        <element-controller-list listName="phones" localName="create-group-phones" itemName="phone" caption="Phones" description="An array of phones starting with the country code. You do not need to add your number. USA example: ['17472822486']." required="true" javaType="java.util.List&lt;java.lang.String&gt;"></element-controller-list>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Object" caption="Get Q R Code" icon="icons/theme.classic/whatsapp-connector-small.png" localId="get-q-r-code" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get Webhook Url" icon="icons/theme.classic/whatsapp-connector-small.png" localId="get-webhook-url" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Logout" icon="icons/theme.classic/whatsapp-connector-small.png" localId="logout" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Read Message" icon="icons/theme.classic/whatsapp-connector-small.png" localId="read-message" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <integer min="0" step="1" name="lastMessageNumber" caption="Last Message Number" description="The lastMessageNumber parameter from the last response." required="true" javaType="java.lang.Integer"></integer>
+        <boolean defaultValue="false" name="last" caption="Last" description="Displays the last 100 messages. If this parameter is passed, then lastMessageNumber is ignored." supportsExpressions="true" required="false" javaType="boolean"></boolean>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Reboot" icon="icons/theme.classic/whatsapp-connector-small.png" localId="reboot" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Object" caption="Send File" icon="icons/theme.classic/whatsapp-connector-small.png" localId="send-file" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="body" caption="Body" description="HTTP link https://upload.wikimedia.org/wikipedia/ru/3/33/NatureCover2001.jpg Or base64-encoded file with mime data, for example data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ... File in form-data input field." required="true" javaType="java.lang.String"></string>
+        <string name="fileName" caption="File Name" description="File name, for example 1.jpg or hello.xlsx." required="true" javaType="java.lang.String"></string>
+        <string name="phone" caption="Phone" description="A phone number starting with the country code. You do not need to add your number. USA example: 17472822486." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Send Message" icon="icons/theme.classic/whatsapp-connector-small.png" localId="send-message" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="message" caption="Message" description="Message text, UTF-8 or UTF-16 string with emoji 🍏." required="true" javaType="java.lang.String"></string>
+        <string name="number" caption="Number" description="A phone number starting with the country code. You do not need to add your number. USA example: 17472822486." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Set Webhook Url" icon="icons/theme.classic/whatsapp-connector-small.png" localId="set-webhook-url" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="webhookUrl" caption="Webhook Url" description="Http or https URL for receiving notifications." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Show Messages Queue" icon="icons/theme.classic/whatsapp-connector-small.png" localId="show-messages-queue" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Status" icon="icons/theme.classic/whatsapp-connector-small.png" localId="status" image="icons/theme.classic/whatsapp-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/whatsapp/abstractWhatsappConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General."></attribute-category>
+  </cloud-connector>
+</namespace>
